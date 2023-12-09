@@ -1,7 +1,4 @@
 import numpy as np
-
-
-
 # Transformar los valores de la columna age a valores numéricos
 def map_age(age):
     if age == '[0-10)':
@@ -32,5 +29,18 @@ def map_gender(gender):
         return 1
     elif gender == 'Female':
         return 0
-    
+
+def correlation_first_selector(df):
+    df=df.dropna()
+    correlation_matrix = df.corr()
+    correlation_with_readmitted = correlation_matrix['readmitted'].abs()
+
+    # Establecer un umbral de correlación, por ejemplo, 0.1
+    threshold = 0.1
+
+    # Encontrar variables con correlación menor que el umbral
+    low_correlation_features = correlation_with_readmitted[correlation_with_readmitted < threshold].index.tolist()
+
+    # Eliminar estas variables del DataFrame
+    df.drop(low_correlation_features, axis=1, inplace=True)
 

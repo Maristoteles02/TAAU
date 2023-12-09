@@ -1,0 +1,129 @@
+{
+  "admission_type_id": {
+    "1": "emergency",
+    "2": "urgent",
+    "3": "elective",
+    "4": "newborn",
+    "5": "NULL",
+    "6": "NULL",
+    "7": "traumat",
+    "8": "NULL"
+  },
+    "discharge_disposition_id": {
+      "1": "home",
+      "2": "transfer",
+      "3": "transfer",
+      "4": "transfer",
+      "5": "transfer",
+      "6": "home",
+      "7": "home",
+      "8": "home",
+      "9": "hospital",
+      "10": "transfer",
+      "11": "expired",
+      "12": "hospital",
+      "13": "expired",
+      "14": "expired",
+      "15": "transfer",
+      "16": "transfer",
+      "17": "transfer",
+      "18": "NULL",
+      "19": "expired",
+      "20": "expired",
+      "21": "expired",
+      "22": "transfer",
+      "23": "transfer",
+      "24": "transfer",
+      "25": "NULL",
+      "26": "NULL",
+      "27": "transfer",
+      "28": "transfer",
+      "29": "transfer",
+      "30": "transfer"
+    },
+        "admission_source_id": {
+          "1": "Physician Referral",
+          "2": "Clinic Referral",
+          "3": "HMO Referral",
+          "4": "Transfer from a hospital",
+          "5": "Transfer from a Skilled Nursing Facility (SNF)",
+          "6": "Transfer from another health care facility",
+          "7": "Emergency Room",
+          "8": "Court/Law Enforcement",
+          "9": "NULL",
+          "10": "Transfer from critial access hospital",
+          "11": "Normal Delivery",
+          "12": "Premature Delivery",
+          "13": "Sick Baby",
+          "14": "Extramural Birth",
+          "15": "NULL",
+          "17": "NULL",
+          "18": "Transfer From Another Home Health Agency",
+          "19": "Readmission to Same Home Health Agency",
+          "20": "NULL",
+          "21": "NULL",
+          "22": "Transfer from hospital inpt/same fac reslt in a sep claim",
+          "23": "Born inside this hospital",
+          "24": "Born outside this hospital",
+          "25": "Transfer from Ambulatory Surgery Center",
+          "26": "Transfer from Hospice"
+        },
+        "age":{
+            "[0-10)"  : 5,
+            "[10-20)" : 15,
+            "[20-30)": 25,
+            "[30-40)" : 35,
+            "[40-50)" : 45,
+            "[50-60)" : 55,
+            "[60-70)" : 65,
+            "[70-80)" : 75,
+            "[80-90)" : 85,
+            "[90-100)" : 95
+
+        },
+        "race":{
+          "AfricanAmerican": 1,
+          "Caucasian": 2,
+          "?": "NULL",
+          "Other": 3,
+          "Asian": 4,
+          "Hispanic": 5
+        },
+        "metformin":{
+          "No":-2,
+          "Down":-1,
+          "Steady":0,
+          "Up":1
+        },
+        "insulin":{
+          "No":-2,
+          "Down":-1,
+          "Steady":0,
+          "Up":1
+        },
+        "diabetesMed":{
+          "Yes":1,
+          "No":0
+        },
+        "change":{
+          "Ch":1,
+          "No":0
+        },
+ 
+            "mandatory_variables": {
+              "race": "object",
+              "gender": "int32",
+              "admission_type_id": "object",
+              "discharge_disposition_id": "object",
+              "diag_1": "int32",
+              "diag_2": "int32",
+              "diag_3": "int32",
+              "metformin": "object",
+              "insulin": "object",
+              "change": "object",
+              "diabetesMed": "object",
+              "readmitted": "int32",
+              "sqrt_n_service_uses": "float32",
+              "medication/day": "float32"
+            }
+}
