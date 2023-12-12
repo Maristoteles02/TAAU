@@ -111,14 +111,12 @@
         },
  
             "mandatory_variables": {
-              "race": "object",
               "gender": "int32",
               "admission_type_id": "object",
               "discharge_disposition_id": "object",
               "diag_1": "int32",
               "diag_2": "int32",
               "diag_3": "int32",
-              "metformin": "object",
               "insulin": "object",
               "change": "object",
               "diabetesMed": "object",

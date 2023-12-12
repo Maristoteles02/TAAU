@@ -13,13 +13,14 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.base import BaseEstimator, TransformerMixin
 class Train_preprocessor():
-    def __init__(self, json_file):
+    def __init__(self, json_file,binary=False):
             """
             Inicializa una instancia de Train_preprocessor.
             Abre y carga un archivo JSON para mapear las columnas y establece el atributo Tree.
             :param json_file: Ruta del archivo JSON para mapeo de columnas.
             :param Tree: Valor booleano, por defecto True.
             """
+            self.binary=binary
             with open(json_file, 'r') as file:  # Abre el archivo JSON
                 self.jsonmapping = json.load(file)  # Carga el contenido del archivo JSON
 #--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -117,6 +118,8 @@ class Train_preprocessor():
 
         d = {'Female': 0, 'Male': 1,'Unknown/Invalid':-1}
         df['gender'] = df['gender'].map(d).astype(int)
+        df=df[df['gender']!=-1]
+
         return df
 
     def mapping_to_num_diag(self,df):
@@ -150,11 +153,18 @@ class Train_preprocessor():
         df['diag_3'] = df['diag_3'].map(d).astype(int)
         return df
     def mapping_target_var(self,df):
-        d={
-            '<30':0,
-            '>30':1,
-            'NO':2,
-        }
+        if self.binary:
+            d={
+                '<30':1,
+                '>30':1,
+                'NO':0,
+            }
+        else:
+            d={
+                '<30':2,
+                '>30':1,
+                'NO':0,
+            }
         df['readmitted']=df['readmitted'].map(d).astype(int)
         return df
 #--------------------------------------------------------------------------------------------------------------------------------------------------
