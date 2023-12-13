@@ -113,6 +113,9 @@
             "mandatory_variables": {
               "gender": "int32",
               "admission_type_id": "object",
+              "num_lab_procedures":"int32",
+              "num_procedures":"int32",
+              "number_diagnoses":"int32",
               "discharge_disposition_id": "object",
               "diag_1": "int32",
               "diag_2": "int32",
